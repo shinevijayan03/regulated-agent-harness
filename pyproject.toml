@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "enterprise-agent-harness"
+name = "regulated-agent-harness"
 version = "0.1.0"
 description = "A production-grade, highly governed rapid prototyping and validation framework for enterprise multi-agent systems."
 readme = "README.md"

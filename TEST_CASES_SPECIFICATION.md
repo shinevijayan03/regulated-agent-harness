@@ -1,4 +1,4 @@
-# Test Cases Specification: Enterprise Agent Harness
+# Test Cases Specification: Regulated Agent Harness
 
 **Document Version:** 1.0.0  
 **Status:** Approved  
@@ -9,7 +9,7 @@
 
 ## 1. Overview & Test Case Taxonomy
 
-This document specifies the complete test catalog for the Enterprise Agent Harness. Each test case defines explicit preconditions, inputs, expected outputs, state assertions, and edge conditions required for full TDD implementation in Phase 2.
+This document specifies the complete test catalog for the Regulated Agent Harness. Each test case defines explicit preconditions, inputs, expected outputs, state assertions, and edge conditions required for full TDD implementation in Phase 2.
 
 ### Taxonomy Matrix
 | Category ID | Module Target | Focus Area |

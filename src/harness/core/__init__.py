@@ -1,1 +1,1 @@
-"""Core package for enterprise agent harness."""
+"""Core package for regulated agent harness."""

@@ -1,4 +1,4 @@
-# Developer Usage Guide: Enterprise Agent Harness
+# Developer Usage Guide: Regulated Agent Harness
 
 **Document Version:** 1.0.0  
 **Target Audience:** Forward Deployed Engineers (FDEs), AI Platform Engineers, Compliance Reviewers  
@@ -8,7 +8,7 @@
 
 ## 1. Quickstart: 15-Minute Agent Deployment
 
-The Enterprise Agent Harness accelerates PoC development into production deployment by eliminating plumbing: state management, compliance audit trails, OpenTelemetry tracing, and security guardrails are pre-wired.
+The Regulated Agent Harness accelerates PoC development into production deployment by eliminating plumbing: state management, compliance audit trails, OpenTelemetry tracing, and security guardrails are pre-wired.
 
 ### Prerequisites
 - Python 3.11+
@@ -18,8 +18,8 @@ The Enterprise Agent Harness accelerates PoC development into production deploym
 ### Step 1: Install the Harness CLI & Library
 ```bash
 # Clone the repository
-git clone https://github.com/enterprise/enterprise-agent-harness.git
-cd enterprise-agent-harness
+git clone https://github.com/shinevijayan03/regulated-agent-harness.git
+cd regulated-agent-harness
 
 # Install harness and CLI using uv
 uv venv
@@ -29,7 +29,7 @@ uv pip install -e ".[dev]"
 
 ---
 
-## 2. Scaffolding a New Business Agent (`harness init`)
+## 2. Scaffolding a New Regulated Agent (`harness init`)
 
 To scaffold a new governed enterprise agent project in seconds:
 
@@ -277,7 +277,7 @@ harness eval --dataset tests/fixtures/golden_eval.json --min-faithfulness 0.85 -
 ### Sample CLI Output:
 ```
 ======================================================================
-           ENTERPRISE AGENT HARNESS PRE-FLIGHT EVALUATION
+           REGULATED AGENT HARNESS PRE-FLIGHT EVALUATION
 ======================================================================
 Evaluating dataset: tests/fixtures/golden_eval.json (10 test cases)
 

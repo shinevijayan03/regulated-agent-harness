@@ -1,12 +1,12 @@
 import pytest
 
+from examples.early_life_food_triage.agent import build_early_life_triage_orchestrator
 from harness.core.types import (
     AgentMessage,
     HarnessState,
     ResumeRequest,
     Role,
 )
-from examples.early_life_food_triage.agent import build_early_life_triage_orchestrator
 
 
 @pytest.mark.asyncio

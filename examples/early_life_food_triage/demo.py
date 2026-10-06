@@ -41,7 +41,7 @@ console = Console(force_terminal=True)
 async def run_early_life_supply_chain_demo() -> None:
     console.print(
         Panel.fit(
-            "[bold cyan]ENTERPRISE AGENT HARNESS: EARLY LIFE FOOD SUPPLY CHAIN TRIAGE[/bold cyan]\n"
+            "[bold cyan]REGULATED AGENT HARNESS: EARLY LIFE FOOD SUPPLY CHAIN TRIAGE[/bold cyan]\n"
             "[dim]Hardware Acceleration: NVIDIA GeForce RTX 3060 (12 GB VRAM) | CUDA 12[/dim]\n"
             "[dim]Compliance Focus: FDA Infant Formula Act (21 CFR Part 106/107) & 21 CFR Part 11[/dim]",
             border_style="cyan",

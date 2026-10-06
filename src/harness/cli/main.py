@@ -7,7 +7,7 @@ from rich.table import Table
 
 app = typer.Typer(
     name="harness",
-    help="Enterprise Agent Harness CLI - Scaffolding, Evaluation & Runtime.",
+    help="Regulated Agent Harness CLI - Scaffolding, Evaluation & Runtime.",
     add_completion=False,
 )
 console = Console()
@@ -18,13 +18,13 @@ def init_agent(
     name: str = typer.Argument(..., help="Name of the new agent to scaffold"),
     directory: str | None = typer.Option(None, "--dir", "-d", help="Target output directory"),
 ) -> None:
-    """Scaffold a production-grade, governed enterprise agent project in seconds."""
+    """Scaffold a production-grade, governed regulated agent project in seconds."""
     target_dir = Path(directory or f"./{name}")
     target_dir.mkdir(parents=True, exist_ok=True)
     (target_dir / "tools").mkdir(exist_ok=True)
     (target_dir / "tests").mkdir(exist_ok=True)
 
-    agent_py = f"""\"\"\"Governed Enterprise Agent: {name}\"\"\"
+    agent_py = f"""\"\"\"Governed Regulated Agent: {name}\"\"\"
 import asyncio
 from harness.core.types import HarnessState, AgentMessage, Role, RiskTier
 from harness.core.orchestrator import HarnessOrchestrator
@@ -55,7 +55,7 @@ if __name__ == "__main__":
     with open(target_dir / "agent.py", "w", encoding="utf-8") as f:
         f.write(agent_py)
 
-    env_content = """# Enterprise Agent Harness Environment Variables
+    env_content = """# Regulated Agent Harness Environment Variables
 PRIMARY_MODEL=azure/gpt-4o
 FALLBACK_MODELS=bedrock/anthropic.claude-3-5-sonnet
 CHECKPOINTER_TYPE=sqlite
@@ -86,7 +86,7 @@ def run_server(
     import uvicorn
 
     console.print(
-        f"[bold green]Starting Enterprise Agent Harness on http://{host}:{port}[/bold green]"
+        f"[bold green]Starting Regulated Agent Harness on http://{host}:{port}[/bold green]"
     )
     uvicorn.run("harness.server.app:app", host=host, port=port, reload=reload)
 
@@ -150,7 +150,7 @@ def run_eval(
         )
     else:
         console.print(
-            "[bold red]QUALITY GATE FAILED: Scores below enterprise thresholds.[/bold red]"
+            "[bold red]QUALITY GATE FAILED: Scores below regulatory thresholds.[/bold red]"
         )
         raise typer.Exit(code=1)
 

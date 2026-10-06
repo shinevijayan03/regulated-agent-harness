@@ -4,11 +4,12 @@ Leverages NVIDIA Ampere Architecture (RTX 3060 12GB) for CUDA tensor acceleratio
 semantic evaluation scoring, and hardware-accelerated audit integrity checks.
 """
 
-from typing import Any, Dict, List, Optional
 import time
+from typing import Any
 
 try:
     import torch
+
     CUDA_AVAILABLE = torch.cuda.is_available()
 except ImportError:
     CUDA_AVAILABLE = False
@@ -31,7 +32,7 @@ class GPUAccelerationEngine:
             self.total_memory_gb = round(props.total_memory / (1024**3), 2)
             self.compute_capability = f"{props.major}.{props.minor}"
 
-    def get_gpu_status(self) -> Dict[str, Any]:
+    def get_gpu_status(self) -> dict[str, Any]:
         """Returns real-time GPU telemetry snapshot."""
         if not self.is_cuda:
             return {
@@ -56,15 +57,15 @@ class GPUAccelerationEngine:
 
     def compute_gpu_semantic_similarity(
         self,
-        embeddings_a: List[List[float]],
-        embeddings_b: List[List[float]],
-    ) -> List[float]:
+        embeddings_a: list[list[float]],
+        embeddings_b: list[list[float]],
+    ) -> list[float]:
         """Computes parallel cosine similarity across embeddings on NVIDIA CUDA Tensor Cores."""
         if not self.is_cuda or not embeddings_a or not embeddings_b:
             # CPU fallback calculation
-            results: List[float] = []
-            for ea, eb in zip(embeddings_a, embeddings_b):
-                dot = sum(x * y for x, y in zip(ea, eb))
+            results: list[float] = []
+            for ea, eb in zip(embeddings_a, embeddings_b, strict=False):
+                dot = sum(x * y for x, y in zip(ea, eb, strict=False))
                 norm_a = sum(x * x for x in ea) ** 0.5
                 norm_b = sum(x * x for x in eb) ** 0.5
                 sim = dot / (norm_a * norm_b) if norm_a and norm_b else 0.0
@@ -79,7 +80,7 @@ class GPUAccelerationEngine:
         sim = torch.nn.functional.cosine_similarity(t_a, t_b, dim=-1)
         return [round(val, 4) for val in sim.cpu().tolist()]
 
-    def benchmark_gpu_throughput(self, batch_size: int = 10000, dim: int = 768) -> Dict[str, Any]:
+    def benchmark_gpu_throughput(self, batch_size: int = 10000, dim: int = 768) -> dict[str, Any]:
         """Benchmarks tensor throughput on RTX 3060 GPU vs CPU baseline."""
         if not self.is_cuda:
             return {"gpu_speedup": "N/A (CUDA not available)"}
@@ -95,7 +96,7 @@ class GPUAccelerationEngine:
         t0_gpu = time.perf_counter()
         x_gpu = torch.randn(batch_size, dim, device=device)
         w_gpu = torch.randn(dim, dim, device=device)
-        y_gpu = torch.matmul(x_gpu, w_gpu)
+        _ = torch.matmul(x_gpu, w_gpu)
         torch.cuda.synchronize()
         gpu_time_ms = (time.perf_counter() - t0_gpu) * 1000
 
@@ -103,7 +104,7 @@ class GPUAccelerationEngine:
         t0_cpu = time.perf_counter()
         x_cpu = torch.randn(batch_size, dim)
         w_cpu = torch.randn(dim, dim)
-        y_cpu = torch.matmul(x_cpu, w_cpu)
+        _ = torch.matmul(x_cpu, w_cpu)
         cpu_time_ms = (time.perf_counter() - t0_cpu) * 1000
 
         speedup = round(cpu_time_ms / max(gpu_time_ms, 0.001), 1)

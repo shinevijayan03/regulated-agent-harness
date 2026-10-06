@@ -1,7 +1,7 @@
-# Software Design Document (SDD): Enterprise Agent Harness
+# Software Design Document (SDD): Regulated Agent Harness
 
 **Document Version:** 1.0.0  
-**Package Name:** `enterprise-agent-harness`  
+**Package Name:** `regulated-agent-harness`  
 **Namespace:** `src/harness`  
 **Target Runtime:** Python 3.11+ / Pydantic v2 / LangGraph >=0.2.20 / FastAPI >=0.115.0  
 

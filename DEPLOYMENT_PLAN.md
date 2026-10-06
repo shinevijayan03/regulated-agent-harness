@@ -1,4 +1,4 @@
-# Deployment Plan: Enterprise Agent Harness
+# Deployment Plan: Regulated Agent Harness
 
 **Document Version:** 1.0.0  
 **Status:** Approved  
@@ -141,13 +141,13 @@ volumes:
 
 services:
   # ============================================================================
-  # 1. Enterprise Agent Harness FastAPI Service
+  # 1. Regulated Agent Harness FastAPI Service
   # ============================================================================
   agent-harness:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: enterprise-agent-harness
+    container_name: regulated-agent-harness
     restart: unless-stopped
     ports:
       - "8000:8000"

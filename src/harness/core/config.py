@@ -3,7 +3,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class HarnessSettings(BaseSettings):
-    """Central configuration for Enterprise Agent Harness."""
+    """Central configuration for Regulated Agent Harness."""
 
     environment: str = Field(default="development", description="Deployment environment")
     primary_model: str = Field(default="azure/gpt-4o", description="Primary model name for LiteLLM")

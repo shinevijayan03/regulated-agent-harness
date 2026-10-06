@@ -15,7 +15,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: enterprise-agent-harness
+    container_name: regulated-agent-harness
     restart: unless-stopped
     ports:
       - "8000:8000"

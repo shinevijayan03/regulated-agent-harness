@@ -1,4 +1,4 @@
-# Prioritized Implementation Plan: Enterprise Agent Harness
+# Prioritized Implementation Plan: Regulated Agent Harness
 
 **Document Version:** 1.0.0  
 **Phase:** Phase 3 (Build Sequencing & Risk-Weighted Backlog)  

@@ -1,4 +1,4 @@
-# Enterprise Agent Harness
+# Regulated Agent Harness
 
 [![Python Version](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/license-Apache--2.0-green.svg)](LICENSE)
@@ -12,9 +12,9 @@ A production-grade, highly governed, low-overhead rapid prototyping and validati
 
 ## 1. Executive Summary & Problem Statement
 
-Enterprise AI squads face a persistent challenge: **the PoC-to-Production Chasm**. When business units request a regulated agentic workflow (contract analysis, regulatory triage, supply chain quarantine), engineering teams spend 4–8 weeks building plumbing: state checkpointing, tracing, guardrails, and compliance logs. Conversely, naive prototypes fail regulatory audits and security reviews.
+Enterprise AI squads face a persistent challenge: **the PoC-to-Production Chasm**. When customers request a regulated agentic workflow (contract analysis, regulatory triage, supply chain quarantine), engineering teams spend 4–8 weeks building plumbing: state checkpointing, tracing, guardrails, and compliance logs. Conversely, naive prototypes fail regulatory audits and security reviews.
 
-`enterprise-agent-harness` solves this by standardizing enterprise governance out of the box:
+`regulated-agent-harness` solves this by standardizing enterprise governance out of the box:
 * **Deterministic State-Graph Orchestration:** Cyclic state machines powered by `LangGraph` (>=0.2.x) with loop limits and fallback boundaries.
 * **Model Gateway Abstraction:** Multi-provider interface powered by `LiteLLM` (Azure OpenAI, AWS Bedrock, Anthropic, and local vLLM/Ollama) with automated exponential backoff and failover cascading.
 * **Human-In-The-Loop (HITL) Gate:** Automated risk-tiering (`READ_ONLY` vs. `MUTATING_HIGH_RISK`). Pauses execution on mutating actions and resumes only upon cryptographically signed supervisor authorization.
@@ -34,7 +34,7 @@ Enterprise AI squads face a persistent challenge: **the PoC-to-Production Chasm*
                                            |
                                            v
 +-----------------------------------------------------------------------------------+
-|                           ENTERPRISE AGENT HARNESS                                |
+|                            REGULATED AGENT HARNESS                                |
 |                                                                                   |
 |  +---------------------+   +-----------------------+   +-----------------------+  |
 |  |   Model Gateway     |   |   State Orchestrator  |   |    Tool & MCP Hub     |  |
@@ -84,8 +84,8 @@ python examples/early_life_food_triage/demo.py
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/shinevijayan03/enterprise-agent-harness.git
-cd enterprise-agent-harness
+git clone https://github.com/shinevijayan03/regulated-agent-harness.git
+cd regulated-agent-harness
 
 # Create virtual environment and install with uv
 uv venv

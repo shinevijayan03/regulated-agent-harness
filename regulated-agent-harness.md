@@ -1,6 +1,6 @@
 # Product Requirements Document (PRD)
 
-## Project: `enterprise-agent-harness`
+## Project: `regulated-agent-harness`
 
 **Document Version:** 1.0.0
 
@@ -27,11 +27,11 @@ When ingesting this PRD in **Google Antigravity**, the autonomous agent must adh
 
 ### 2.1 The Enterprise Problem
 
-Enterprise AI teams struggle with a persistent bottleneck: **the PoC-to-Production Chasm**. When business units request a new agentic use case (e.g., contract analysis, compliance triage, customer support automation), Forward Deployed Engineering (FDE) teams spend 4–8 weeks rebuilding boilerplate plumbing: state handling, auth, API routing, tracing, guardrails, and compliance logs. Conversely, hackathon prototypes built on naive scripts fail security, compliance (FDA 21 CFR Part 11 / SOC2), and observability reviews.
+Enterprise AI teams struggle with a persistent bottleneck: **the PoC-to-Production Chasm**. When customers request a new agentic use case (e.g., contract analysis, compliance triage, customer support automation), Forward Deployed Engineering (FDE) teams spend 4–8 weeks rebuilding boilerplate plumbing: state handling, auth, API routing, tracing, guardrails, and compliance logs. Conversely, hackathon prototypes built on naive scripts fail security, compliance (FDA 21 CFR Part 11 / SOC2), and observability reviews.
 
 ### 2.2 The Solution
 
-`enterprise-agent-harness` is a **governed, production-ready scaffolding framework and CLI generator** that enables FDE squads to build, instrument, evaluate, and deploy an enterprise-grade, multi-tool AI agent in **under 48 hours**.
+`regulated-agent-harness` is a **governed, production-ready scaffolding framework and CLI generator** that enables FDE squads to build, instrument, evaluate, and deploy an enterprise-grade, multi-tool AI agent in **under 48 hours**.
 
 It standardizes:
 
@@ -47,9 +47,9 @@ It standardizes:
 
 | Persona | Role | Primary Objective |
 | --- | --- | --- |
-| **Forward Deployed Engineer (FDE)** | Customer-embedded AI Engineer | Scaffold a bespoke business agent in 1 day with production tracing and tool routing ready out of the box. |
-| **Enterprise AI Platform Director** | Architecture & Governance Lead | Enforce standard guardrails, MRM risk-tier scoring, and unified audit logs across all business-unit deployments. |
-| **Business Unit Sponsor** | Pharma / Supply Chain / Ops Lead | Verify agent task accuracy, auditability, and safety before approving transition from PoC to Pilot. |
+| **Forward Deployed Engineer (FDE)** | Customer-embedded AI Engineer | Scaffold a bespoke customer agent in 1 day with production tracing and tool routing ready out of the box. |
+| **Enterprise AI Platform Director** | Architecture & Governance Lead | Enforce standard guardrails, MRM risk-tier scoring, and unified audit logs across all customer deployments. |
+| **Customer Sponsor** | Pharma / Supply Chain / Ops Lead | Verify agent task accuracy, auditability, and safety before approving transition from PoC to Pilot. |
 
 ---
 
@@ -62,7 +62,7 @@ It standardizes:
                                            |
                                            v
 +-----------------------------------------------------------------------------------+
-|                           ENTERPRISE AGENT HARNESS                                |
+|                            REGULATED AGENT HARNESS                                |
 |                                                                                   |
 |  +---------------------+   +-----------------------+   +-----------------------+  |
 |  |   Model Gateway     |   |   State Orchestrator  |   |    Tool & MCP Hub     |  |

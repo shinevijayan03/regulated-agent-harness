@@ -2,7 +2,7 @@
 
 **Domain:** Infant Nutrition & Baby Food Supply Chain Governance  
 **Regulatory Standards:** FDA Infant Formula Act (21 CFR Part 106 & 107), FSMA (21 CFR Part 117), FDA 21 CFR Part 11, GxP  
-**Powered by:** `enterprise-agent-harness`  
+**Powered by:** `regulated-agent-harness`  
 
 ---
 
@@ -12,7 +12,7 @@ Under the **FDA Infant Formula Act (21 CFR Part 106.100)**, infant nutrition pro
 
 However, executing high-consequence operations (such as applying an ERP inventory lockdown across warehouse distribution centers) must **never occur autonomously without human authorization**. 
 
-The **Enterprise Agent Harness** solves this:
+The **Regulated Agent Harness** solves this:
 1. **Autonomous Investigation:** Rapidly pulls LIMS pathogen reports and SCADA thermal dataloggers using `READ_ONLY` tools.
 2. **Deterministic Risk Gating:** Detects the contamination breach and attempts to call `quarantine_infant_formula_lot`.
 3. **Governed HITL Interrupt:** Recognizes `RiskTier.MUTATING_HIGH_RISK`, halts execution, saves a persistent state checkpoint, and generates an approval ticket.

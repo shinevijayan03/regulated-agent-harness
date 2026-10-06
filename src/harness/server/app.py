@@ -65,7 +65,7 @@ class ServerMockGateway(BaseModelGateway):
 
 def create_app() -> FastAPI:
     app = FastAPI(
-        title="Enterprise Agent Harness API",
+        title="Regulated Agent Harness API",
         version="1.0.0",
         description="Governed multi-agent harness runtime (FDA 21 CFR Part 11 & SOC2).",
     )

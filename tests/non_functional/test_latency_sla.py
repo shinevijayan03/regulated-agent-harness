@@ -1,10 +1,11 @@
 import time
+
 import pytest
 
-from harness.core.types import HarnessState, AgentMessage, Role, RiskTier
-from harness.guardrails.input_guard import InputGuardInterceptor
-from harness.guardrails.hitl import HITLGateInterceptor
 from harness.compliance.audit import CryptographicAuditTrail
+from harness.core.types import AgentMessage, HarnessState, RiskTier, Role
+from harness.guardrails.hitl import HITLGateInterceptor
+from harness.guardrails.input_guard import InputGuardInterceptor
 from harness.middleware.pipeline import MiddlewarePipeline
 from harness.registry.tools import ToolRegistry, harness_tool
 

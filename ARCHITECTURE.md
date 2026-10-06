@@ -1,4 +1,4 @@
-# System Architecture: Enterprise Agent Harness
+# System Architecture: Regulated Agent Harness
 
 **Document Version:** 1.0.0  
 **Status:** Approved  
@@ -9,7 +9,7 @@
 
 ## 1. Architectural Overview & Design Philosophy
 
-The **Enterprise Agent Harness** is engineered to eliminate the fundamental vulnerabilities of autonomous agent architectures when deployed in regulated enterprise environments: non-determinism, lack of observability, unconstrained token budgets, and missing auditability.
+The **Regulated Agent Harness** is engineered to eliminate the fundamental vulnerabilities of autonomous agent architectures when deployed in regulated enterprise environments: non-determinism, lack of observability, unconstrained token budgets, and missing auditability.
 
 ### Core Architectural Principles:
 1. **Deterministic State-Graph Over Wild Autonomy:** Agent decision-making is constrained to a finite-state machine with well-defined transitions, explicit fallback boundaries, and cycle limits.
@@ -31,7 +31,7 @@ flowchart TB
         HumanReviewer["Compliance Officer\n/ HITL Approver"]
     end
 
-    subgraph Harness["Enterprise Agent Harness Runtime"]
+    subgraph Harness["Regulated Agent Harness Runtime"]
         subgraph Ingress["Ingress Layer"]
             FastAPIServer["FastAPI Application\n(/run, /resume, /audit, /health)"]
             CLIRunner["CLI Execution Core"]

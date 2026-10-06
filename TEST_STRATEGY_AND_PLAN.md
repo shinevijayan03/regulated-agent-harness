@@ -1,4 +1,4 @@
-# Test Strategy and Plan: Enterprise Agent Harness
+# Test Strategy and Plan: Regulated Agent Harness
 
 **Document Version:** 1.0.0  
 **Status:** Approved  
@@ -9,7 +9,7 @@
 
 ## 1. Testing Philosophy & Test Pyramid
 
-In heavily regulated software engineering (GxP, FDA 21 CFR Part 11, SOC2), testing is not merely a bug-detection mechanism—it is a formal **Validation Protocol**. The Enterprise Agent Harness implements a multi-tiered test pyramid ensuring determinism, safety, and performance under strict failure conditions:
+In heavily regulated software engineering (GxP, FDA 21 CFR Part 11, SOC2), testing is not merely a bug-detection mechanism—it is a formal **Validation Protocol**. The Regulated Agent Harness implements a multi-tiered test pyramid ensuring determinism, safety, and performance under strict failure conditions:
 
 ```
                   / \

@@ -1,6 +1,6 @@
-# Implementation Plan: Enterprise Agent Harness
+# Implementation Plan: Regulated Agent Harness
 
-**Project Name:** `enterprise-agent-harness`  
+**Project Name:** `regulated-agent-harness`  
 **Document Version:** 1.0.0  
 **Status:** Approved for Execution  
 **Target Environment:** Python 3.11+ / uv / FastAPI / LangGraph / LiteLLM / OpenTelemetry / Langfuse  
@@ -10,7 +10,7 @@
 
 ## 1. Executive Summary & Purpose
 
-The **Enterprise Agent Harness** is a governed, production-grade orchestration and rapid prototyping framework designed for high-liability, heavily audited environments. It bridges the "PoC-to-Production Chasm" by standardizing state-graph execution, multi-provider model routing, human-in-the-loop (HITL) authorization gates, immutable cryptographic audit trails, and automated pre-flight synthetic evaluation.
+The **Regulated Agent Harness** is a governed, production-grade orchestration and rapid prototyping framework designed for high-liability, heavily audited environments. It bridges the "PoC-to-Production Chasm" by standardizing state-graph execution, multi-provider model routing, human-in-the-loop (HITL) authorization gates, immutable cryptographic audit trails, and automated pre-flight synthetic evaluation.
 
 This Implementation Plan defines the phased roadmap, critical path, dependency management, resource allocations, and risk mitigation strategies required to deliver the harness with zero architectural debt and strict conformance to the Product Requirements Document (PRD).
 

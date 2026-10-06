@@ -1,0 +1,33 @@
+[
+  {
+    "id": "elf-eval-001",
+    "question": "Perform pathogen screening on compliant infant formula batch LOT-INF-9901.",
+    "expected_tool": "get_batch_pathogen_screening",
+    "expected_arguments": {
+      "batch_id": "LOT-INF-9901"
+    },
+    "ground_truth_context": "Lot LOT-INF-9901 tested negative for Cronobacter sakazakii and Salmonella.",
+    "ground_truth_answer": "Lot LOT-INF-9901 passed all microbiological screening requirements."
+  },
+  {
+    "id": "elf-eval-002",
+    "question": "Investigate microbiological and thermal reports for suspect lot LOT-INF-8812.",
+    "expected_tool": "get_batch_pathogen_screening",
+    "expected_arguments": {
+      "batch_id": "LOT-INF-8812"
+    },
+    "ground_truth_context": "LIMS confirms presumptive positive Cronobacter sakazakii in lot LOT-INF-8812.",
+    "ground_truth_answer": "Presumptive positive Cronobacter sakazakii detected in lot LOT-INF-8812."
+  },
+  {
+    "id": "elf-eval-003",
+    "question": "Apply ERP quarantine hold on lot LOT-INF-8812 due to confirmed contamination.",
+    "expected_tool": "quarantine_infant_formula_lot",
+    "expected_arguments": {
+      "lot_id": "LOT-INF-8812",
+      "regulatory_statute": "FDA_21_CFR_106_100"
+    },
+    "ground_truth_context": "Immediate quarantine lockdown required under FDA 21 CFR Part 106.100 zero-tolerance mandates.",
+    "ground_truth_answer": "Lot LOT-INF-8812 has been quarantined across ERP with shipping docks halted."
+  }
+]

@@ -1,0 +1,78 @@
+version: '3.8'
+
+networks:
+  harness-net:
+    driver: bridge
+
+volumes:
+  pgdata:
+  clickhousedata:
+  miniodata:
+  langfusedata:
+
+services:
+  agent-harness:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: enterprise-agent-harness
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=production
+      - PRIMARY_MODEL=azure/gpt-4o
+      - FALLBACK_MODELS=bedrock/anthropic.claude-3-5-sonnet
+      - CHECKPOINTER_TYPE=postgres
+      - DATABASE_URL=postgresql://harness_user:harness_secure_pw@postgres:5432/harness_db
+      - LANGFUSE_HOST=http://langfuse-server:3000
+      - LANGFUSE_PUBLIC_KEY=pk-lf-enterprise-harness
+      - LANGFUSE_SECRET_KEY=sk-lf-enterprise-secret
+      - MAX_SESSION_COST_USD=1.00
+      - MAX_ITERATIONS=10
+    depends_on:
+      postgres:
+        condition: service_healthy
+      langfuse-server:
+        condition: service_started
+    networks:
+      - harness-net
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: harness-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: harness_user
+      POSTGRES_PASSWORD: harness_secure_pw
+      POSTGRES_DB: harness_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U harness_user -d harness_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - harness-net
+
+  langfuse-server:
+    image: langfuse/langfuse:2
+    container_name: harness-langfuse-server
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://harness_user:harness_secure_pw@postgres:5432/harness_db
+      - NEXTAUTH_URL=http://localhost:3000
+      - NEXTAUTH_SECRET=changeme-in-production-auth-secret
+      - SALT=changeme-in-production-salt
+      - TELEMETRY_ENABLED=false
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - harness-net

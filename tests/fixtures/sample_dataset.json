@@ -1,0 +1,23 @@
+[
+  {
+    "id": "eval-case-001",
+    "question": "Check real-time temperature telemetry for cold chain sensor SENS-901.",
+    "expected_tool": "get_sensor_telemetry",
+    "expected_arguments": {
+      "sensor_id": "SENS-901"
+    },
+    "ground_truth_context": "Sensor SENS-901 reported temperature 8.5C with 45 minutes excursion.",
+    "ground_truth_answer": "Sensor SENS-901 has recorded a temperature of 8.5°C with an excursion duration of 45 minutes."
+  },
+  {
+    "id": "eval-case-002",
+    "question": "Quarantine lot LOT-4029 due to temperature breach.",
+    "expected_tool": "quarantine_batch",
+    "expected_arguments": {
+      "batch_id": "LOT-4029",
+      "reason": "temperature breach"
+    },
+    "ground_truth_context": "Quarantine command locked lot LOT-4029 in ERP.",
+    "ground_truth_answer": "Lot LOT-4029 has been submitted for supervisor quarantine authorization."
+  }
+]

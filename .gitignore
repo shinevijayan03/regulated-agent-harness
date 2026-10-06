@@ -1,0 +1,39 @@
+# Python virtual environment
+.venv/
+venv/
+ENV/
+env/
+
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Pytest & Coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Mypy & Ruff cache
+.mypy_cache/
+.ruff_cache/
+
+# Local databases and checkpoints
+*.db
+*.sqlite
+*.sqlite3
+.harness_checkpoints.db
+
+# Environment variables & secrets
+.env
+!.env.example
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
